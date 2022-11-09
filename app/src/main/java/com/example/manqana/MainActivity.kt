@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         telefoni = findViewById(R.id.phone)
         dasruleba = findViewById(R.id.finish)
 
-        var samiaso = samiCifri.text.toString()
         var tele = telefoni.text.toString()
 
 
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        if(TextUtils.isEmpty(samiaso) || Integer.parseInt(samiaso)>999){
+        if(TextUtils.isEmpty(samiCifri.text.toString()) || samiCifri.text.toString().toInt()>999){
 
                 samiCifri.error = "შეიყვანეთ სწორი მონაცემები"
                 return@setOnClickListener
@@ -67,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
         }
 
-        if ( (tele.length != 9) || !(tele.startsWith("5")) ) {
+        if ( (telefoni.text.toString().length != 9) || !(telefoni.text.toString().startsWith("5")) ) {
 
                 telefoni.error = "შეიყვანეთ სწორი ტელეფონის ნომერი"
                 return@setOnClickListener
