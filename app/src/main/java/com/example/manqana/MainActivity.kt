@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        if(TextUtils.isEmpty(samiCifri.text.toString()) || samiCifri.text.toString().toInt()>999){
+        if(samiCifri.text.toString().length !=3 ){
 
                 samiCifri.error = "შეიყვანეთ სწორი მონაცემები"
                 return@setOnClickListener
