@@ -34,47 +34,45 @@ class MainActivity : AppCompatActivity() {
         telefoni = findViewById(R.id.phone)
         dasruleba = findViewById(R.id.finish)
 
-        var tele = telefoni.text.toString()
 
 
     dasruleba.setOnClickListener {
 
-        val symbols = "0123456789"
 
-        if(pirveliOri.length() != 2 || pirveliOri.text.any { it in symbols }) {
+
+        if(pirveliOri.length() != 2 || !pirveliOri.text.any {it.isLetter()}) {
 
                 pirveliOri.error = "შეიყვანეთ სწორი მონაცემები"
-                return@setOnClickListener
 
         }
 
-        if(samiCifri.text.toString().length !=3 ){
+          else if(samiCifri.text.toString().length !=3 || !samiCifri.text.toString().isDigitsOnly() ){
 
                 samiCifri.error = "შეიყვანეთ სწორი მონაცემები"
-                return@setOnClickListener
-        }
 
-        if(bolo2.length() != 2 || pirveliOri.text.any { it in symbols }){
+          }
+
+          else if(bolo2.length() != 2 || !bolo2.text.any{ it.isLetter()}){
 
                 bolo2.error = "შეიყვანეთ სწორი მონაცემები"
-                return@setOnClickListener
-        }
 
-        if (piradi.length() != 11){
+          }
+
+          else if (piradi.length() != 11 || !piradi.text.toString().isDigitsOnly()){
 
                 piradi.error = "შეიყვანეთ სწორი პირადი ნომერი"
-                return@setOnClickListener
-        }
+          }
 
-        if ( (telefoni.text.toString().length != 9) || !(telefoni.text.toString().startsWith("5")) ) {
+          else if ((telefoni.text.toString().length != 9) || !(telefoni.text.toString().startsWith("5")) ) {
 
                 telefoni.error = "შეიყვანეთ სწორი ტელეფონის ნომერი"
-                return@setOnClickListener
-        }
+          }
 
 
 
-        Toast.makeText (this, "მონაცემები წარმატებით გადაიგზავნა", Toast.LENGTH_LONG).show()
+          else {
+              Toast.makeText (this, "მონაცემები წარმატებით გადაიგზავნა", Toast.LENGTH_LONG).show()
+          }
 
 
         }
